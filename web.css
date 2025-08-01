@@ -5,23 +5,72 @@
   font-family: arial;
 }
 :root {
-  --primary--: #00eeff;
+  --primary--: #2ee6f3;
   --gray--: rgba(173, 173, 173, 0.271);
-  --black--: #000000; /*alway use in word like h1 p and links etc*/
-  --white--: #ffffff; /* alway use in body*/
+  --black--: #ffffff; /* alway use in word like h1 p and links etc  text-color    */
+  --white--: #000000; /* alway use in body  --background-color:*/
   --hovercolor1--: rgb(0, 204, 255);
-  --buttoncolor--: rgb(255, 234, 0);
+  --buttoncolor--: rgb(1, 175, 255);
   --darkthembuttoncolor--: rgb(68, 68, 68);
+  --footer-bg-color--: rgba(53, 51, 51, 0.477);
+  --headerbordercolor: rgba(71, 71, 71, 0.333);
 }
 body {
   background-color: var(--white--);
+  color: var(--black--);
+  transition: background-color 0.3s, color 0.3s;
+}
+/* dark mood enable*/
+
+.dark-mode {
+  --white--: #ffffff; /* alway use in body  --background-color: ----------------------*/
+  --black--: #000000; /* alway use in word like h1 p and links etc  text-color    */
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  height: 27px;
+  width: 55px;
+  background-color: #514d4d;
+  transition: 0.4s;
+  border-radius: 34px;
+      margin-top: 7px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(0, 0, 0);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #343435;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
 }
 header {
-  /* border-bottom: 2px solid var(--primary--); */
+  /* border-bottom: 2px solid var(--headerbordercolor); */
   height: 60px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: var(--headerbordercolor);
 }
 header h1 {
   color: var(--primary--);
@@ -37,6 +86,7 @@ nav a {
 header div i {
   height: 37px;
   width: 37px;
+  margin: 0 8px ;
   margin-top: 20px;
   transition: 0.3s;
   color: var(--black--);
@@ -72,7 +122,6 @@ nav a:hover::after {
 /* hero-section css */
 #hero {
   padding: 50px 100px;
- 
 }
 .hero-row {
   display: flex;
@@ -112,7 +161,7 @@ nav a:hover::after {
   outline: none;
   border-radius: 10px;
   border: 1px solid gray;
-  background-color: var(--primary--);
+  background-color: var(--buttoncolor--);
   color: var(--white--);
 }
 .hero-left-col form button:hover {
@@ -133,7 +182,7 @@ div .counter {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   padding-top: 35px;
 }
 .hero-right-col div {
@@ -152,7 +201,7 @@ div .counter {
   width: 150px;
   height: 325px;
   position: absolute;
-  top: 403px;
+  top: 375px;
   left: 79px;
 }
 /* Feature section css */
@@ -285,7 +334,7 @@ div .counter {
   margin-left: 44%;
   margin-bottom: -100px;
   color: var(--black--);
-  font-size:40px;
+  font-size: 40px;
   text-align: center;
 }
 .card {
@@ -323,99 +372,141 @@ div .counter {
   padding: 10px;
   margin-left: 6px;
   margin-top: 10px;
-  background-color: aqua;
+  background-color: var(--buttoncolor--);
   color: var(--black--);
 }
 /*  sellling protion css  */
 
-#selling{
-   padding: 50px 100px;
+#selling {
+  padding: 50px 100px;
 }
-#selling h1{
+#selling h1 {
   font-size: 40px;
   text-align: center;
   margin-top: 50px;
   color: var(--black--);
+  margin-bottom: 45px;
 }
-.selling-row{
+.selling-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-
 }
-.selling-box{
+.selling-box {
   width: 30%;
+  background-color: var(--footer-bg-color--);
 }
 
-.selling-box img{
-   width: 100%;
+.selling-box img {
+  width: 100%;
 }
 
-.selling-box h3 , .selling-box p {
- text-align: center;
- margin-bottom: 10px;
- color: var(--black--);
+.selling-box h3,
+.selling-box p {
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--black--);
 }
-
 
 /*  festival  area */
-#festival{
-    padding: 50px 100px;
-    margin-top: 120px;
+#festival {
+  padding: 50px 100px;
+  margin-top: 120px;
 }
-.festival-row{
-    display: flex;
-    align-items: center;
-    margin-left: 30px;
+.festival-row {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
 }
-.festival-left-col{
-    width: 50%;
+.festival-left-col {
+  width: 50%;
 }
-.festival-right-col{
-    width: 50%;
-    margin-right: 100px;
+.festival-right-col {
+  width: 50%;
+  margin-right: 100px;
 }
-.festival-left-col p{
-    margin-bottom: 20px;
-    color: var(--black--);
+.festival-left-col p {
+  margin-bottom: 20px;
+  color: var(--black--);
 }
-.festival-left-col h1{
-    font-size: 40px;
-    margin-bottom: 20px;
+.festival-left-col h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: var(--black--);
 }
-.festival-left-col button{
-    padding: 18px;
+.festival-left-col span {
+  color: var(--primary--);
 }
-.festival-right-col img{
-    height: 350px;
-    width: 700px;
+.festival-left-col button {
+  padding: 10px;
+  background-color: var(--buttoncolor--);
+}
+.festival-right-col img {
+  height: 350px;
+  width: 700px;
 }
 
-/*  comment area section 5 */
+/*  footer area section 5 */
 
-footer form{
+footer form {
   text-align: center;
   margin: 50px 0px;
 }
- footer form input{
+footer form input {
   width: 50%;
   padding: 10px;
   background-color: var(--gray--);
   border: none;
   outline: none;
- }
- footer form button{
+  color: var(--black--);
+}
+footer form button {
   outline: none;
   border: none;
-  background-color:  var(--primary--);
+  background-color: var(--buttoncolor--);
   color: var(--black--);
-padding: 10px;
- }
-.footer-row{
-  display: flex;
-  justify-content: space-evenly
+  padding: 10px;
 }
-.footer-col p, .footer-col h2{
+.footer-row {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--footer-bg-color--);
+}
+.footer-col {
+  padding-top: 20px;
+}
+.footer-col p {
   margin-bottom: 6px;
+  color: var(--black--);
+  text-decoration: none;
+}
+.footer-col img {
+  height: 54px;
+  width: 208px;
+}
+.footer-col h2 {
+  margin-bottom: 6px;
+  color: var(--black--);
+  text-decoration: none;
+  margin-top: 8px;
+}
+.footer-col a {
+  text-decoration: none;
+  display: block;
+  color: var(--black--);
+  margin-top: 6px;
+}
+.footer-links {
+  display: flex;
+}
+.footer-links a i {
+  height: 37px;
+  width: 37px;
+  margin-top: 2px;
+  transition: 0.3s;
+  color: var(--black--);
+}
+.footer-col a i:hover {
+  color: var(--hovercolor1--);
 }
